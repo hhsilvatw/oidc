@@ -1,0 +1,25 @@
+{
+  "header": {
+    "alg": "RS256",
+    "kid": "UhWYS3USL4yKxVV1A0uTn6R3Q5pcMya7q4jQ5bd9gDk"
+  },
+  "payload": {
+    "sub": "00u5pv7z0nAaE94n10h7",
+    "name": "Karl Stoney",
+    "email": "karl@jambr.co.uk",
+    "ver": 1,
+    "iss": "http://127.0.0.1:9483",
+    "aud": "maIN2Bt6NIbtGVLSJc1d",
+    "iat": 1470243350,
+    "exp": 1470246950,
+    "jti": "ID.wDCRqm-LJ6f1VRsuPICv4ujnsOXu-71Il-swvNQVHI0",
+    "amr": [
+      "pwd"
+    ],
+    "idp": "00o1eig8yFROKSKUIDGS",
+    "preferred_username": "karl@jambr.co.uk",
+    "auth_time": 1470225305,
+    "at_hash": "vowfTBrgzEEzCj3iGG-7VQ"
+  },
+  "signature": "doesnt matter, this is stubbed out"
+}

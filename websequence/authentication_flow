@@ -1,0 +1,30 @@
+title Authentication Flow
+
+alt aquiring a jwt
+    Service User -> Application: /auth/okta
+    Application -> Service User: 302 to Okta
+    Service User -> Okta: OAuth Authentication
+    Okta -> Application: Authentication Code
+    Application -> Okta: get auth_token, refresh_token, JWT
+    Okta -> Application: Bunch of tokens
+    Application -> Application: Validate JWT
+    Application -> Service User: 302 to /profile?id_token=jwt
+end
+note right of Service User: The JWT can be used for a short period\n to invoke other microservices
+alt invoke protected application page
+    Service User -> Application: /profile?id_token=jwt 
+    Application -> Application: Validate JWT
+    Application -> Service User: 200
+end
+
+alt invoke Microservice 1
+    Service User -> Microservice1: /some/page?id_token=jwt
+    Microservice1 -> Microservice1: Validate JWT
+    Microservice1 -> Service User: 200
+end
+
+alt invoke Microservice2 
+    Service User -> Microservice2: /some/otherpage?id_token=jwt
+    Microservice2 -> Microservice2: Validate JWT
+    Microservice2 -> Service User: 200
+end

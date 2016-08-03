@@ -1,0 +1,7 @@
+{
+  "access_token": "this is stubbed out",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "refresh_token": "TEN8Kva1vTEcen2pSYvKUwQ8xi5gR5ln35WPRwzZ4dE",
+  "id_token": "this is stubbed out"
+}
