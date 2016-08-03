@@ -1,8 +1,8 @@
 # oidc 
-[restify](https://github.com/restify/node-restify) middleware to enable [OpenID Connect](http://openid.net/connect/) __authentication__ against an oidc provider (tested against Okta Preview).
+[restify](https://github.com/restify/node-restify) middleware to enable [OpenID Connect](http://openid.net/connect/) claims based __authentication__ against an oidc provider (tested against Okta Preview).
 
 ## Summary
-This project basically came about as I wanted to make use of Json Web Tokens in a microservers architecture to pass around identity without constantly querying the OAuth server.
+This project basically came about as I wanted to make use of Json Web Tokens in a microservers architecture to pass around claims related to identity without constantly querying the OAuth server.
 
 ### Key Features
 
@@ -20,11 +20,16 @@ This project basically came about as I wanted to make use of Json Web Tokens in 
 ## Authentication, not Authorisation
 The purpose here is to prove to the microservices __who you are__, not __what you can do__.  Subsequently; you'll need to think about AuthZ, and your implementation is going to be highly dependent on your architecture (each service might have it's own AuthZ?  You might not need AuthZ because everyone can do everything if they're authenticated?).
 
+Remember the JWT is just a signed set of claims, by one server, that another server trusts.  For example:
+
+"Hi __Application Server__, I want to access your resources and my username is __bob__, here is proof my name is bob from __Okta__ in the form of a JWT"
+
+
 ## Example
 ### Use case
-Your user is visiting a web page which aggregates information from multiple other microservices, you don't want the user to go through an Authentication flow for each service, you just want to pass the identity around.
+Your user is visiting a web page which aggregates information from multiple other microservices, each of those microservices however needs to know that you're authenticated, and who you are in order to provide the information back to you.
 
-### Actors
+### Components
 
   - Okta as an OpenID Connect provider
   - Application: Some web application
@@ -34,6 +39,8 @@ Your user is visiting a web page which aggregates information from multiple othe
 ### Sequence
 The sequence looks like this:
 ![sequence](websequence/authentication_flow.png?raw=true)
+
+__Note:__ Security Consideration: If a JWT is going to leave your network; it would be good practice to dereference it first.  For example; if NGINX was in front of all of these services, it could handle the referencing of an incoming arbitary token to a JWT, which is then passed to the upstream.
 
 ### The Code
 Here is an example of the above flow
