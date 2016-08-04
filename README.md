@@ -22,8 +22,7 @@ The purpose here is to prove to the microservices __who you are__, not __what yo
 
 Remember the JWT is just a signed set of claims, by one server, that another server trusts.  For example:
 
-"Hi __Application Server__, I want to access your resources and my username is __bob__, here is proof my name is bob from __Okta__ in the form of a JWT"
-
+"Hi __Application Server__, I want to access your resources and my username is __bob__, here is proof i am bob from __Okta__ in the form of a JWT that's signed by Oktas private key"
 
 ## Example
 ### Use case
@@ -50,7 +49,7 @@ let restify = require('restify');
 let oidc = require('oidc');
 
 let server = restify.createServer({
-  name: 'Your super awesome API server',
+  name: 'Your super awesome application server',
   version: '0.1.0'
 });
 
@@ -85,7 +84,8 @@ server.get(
 );
 
 // Protected resource expects the jwt to prove who they are to be passed
-// in the query string as id_token=jwthash
+// in the query string as id_token=jwthash, not passing jwt here results 
+// in a 401
 server.get(
   '/profile',
   middleware.auth(),
