@@ -1,6 +1,6 @@
 {
   "name": "oidc",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Middleware for a bunch of common web servers to handle OIDC authentication.",
   "keywords": [
     "restify",
