@@ -80,7 +80,7 @@ server.get(
   middleware.auth(),
   (req, res, next) => {
     // Once we have a valid jwt; redirect to the profile page using it
-    res.redirect('/profile?id_token=' + req.user.jwt, next);
+    res.redirect('/profile?id_token=' + req.user.jwt.raw, next);
   }
 );
 
