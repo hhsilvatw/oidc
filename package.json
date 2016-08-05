@@ -14,15 +14,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:Stono/oidc.git"
+    "url": "git@github.com:peopledata/oidc.git"
   },
   "bugs": {
-    "url": "http://github.com/Stono/oidc/issues"
+    "url": "http://github.com/peopledata/oidc/issues"
   },
   "author": {
     "name": "Karl Stoney",
-    "email": "karl@jambr.co.uk",
-    "url": "https://jambr.co.uk"
+    "email": "kstoney@thoughtworks.com",
+    "url": "https://www.thoughtworks.com"
   },
   "licenses": [
     {
