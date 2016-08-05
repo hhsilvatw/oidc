@@ -44,7 +44,7 @@ __Note:__ Security Consideration: If a JWT is going to leave your network; it wo
 ### The Code
 Here is an example of the above flow
 
-```
+```javascript
 let restify = require('restify');
 let oidc = require('oidc');
 
