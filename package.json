@@ -26,8 +26,8 @@
   },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
+      "type": "AGPL",
+      "url": "https://www.gnu.org/licenses/agpl.txt"
     }
   ],
   "main": "index.js",
