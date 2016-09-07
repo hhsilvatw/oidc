@@ -40,7 +40,9 @@
     "uid2": "0.0.3"
   },
   "devDependencies": {
+    "body-parser": "^1.15.2",
     "deride": "^0.5.4",
+    "express": "^4.14.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
